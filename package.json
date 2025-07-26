@@ -18,6 +18,7 @@
 		"mock",
 		"typescript"
 	],
+	"files": ["dist"],
 	"author": "TOMIKAWA Sotaro",
 	"license": "MIT",
 	"devDependencies": {
