@@ -24,6 +24,7 @@ type StatusForOperation<Operation extends OperationObject> =
 	keyof ResponseObjectMap<Operation>;
 type HandlerContext<Operation extends OperationObject> = {
 	params: ParamsOption<Operation>;
+	delay: (ms: number) => Promise<void>;
 	jsonResponse: <Status extends StatusForOperation<Operation> & number>(
 		status: Status,
 		data: ResponseBodyJson<Operation, Status> extends infer T
@@ -82,6 +83,7 @@ export function createMockMiddleware<T extends Client<any>>(
 			if (!mock) return;
 			return mock[2](options.request, {
 				params: options.params as DefaultParamsOption,
+				delay,
 				jsonResponse,
 			});
 		},
@@ -119,4 +121,7 @@ function jsonResponse<T>(status: number, data: T): Response {
 		status,
 		headers: { "Content-Type": "application/json" },
 	});
+}
+function delay(ms: number): Promise<void> {
+	return new Promise((resolve) => setTimeout(resolve, ms));
 }
