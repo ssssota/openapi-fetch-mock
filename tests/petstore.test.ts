@@ -2,11 +2,11 @@ import petstore from "@readme/oas-examples/3.1/json/petstore.json";
 import createClient from "openapi-fetch";
 import { beforeAll, expect, it } from "vitest";
 import { createMockMiddleware } from "../dist";
-import type { paths } from "./petstore";
+import type { paths } from "./petstore.gen";
 import { baseUrl, compile, createFetch } from "./utils";
 
 beforeAll(async () => {
-	await compile(petstore, "./petstore.ts");
+	await compile(petstore, "./petstore.gen.ts");
 });
 
 it("mock", async () => {
