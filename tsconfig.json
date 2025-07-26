@@ -1,0 +1,12 @@
+{
+	"compilerOptions": {
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"lib": ["esnext", "dom"],
+		"noEmit": true,
+		"strict": true,
+		"declaration": true,
+		"verbatimModuleSyntax": true,
+		"skipLibCheck": true
+	}
+}
