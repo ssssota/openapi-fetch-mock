@@ -1,7 +1,7 @@
 {
 	"name": "openapi-fetch-mock",
 	"description": "",
-	"version": "1.0.0",
+	"version": "0.0.0",
 	"type": "module",
 	"module": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -9,7 +9,8 @@
 		"build": "tsdown",
 		"check": "biome check . && tsgo",
 		"fmt": "biome check . --fix",
-		"test": "vitest"
+		"test": "vitest",
+		"prepublishOnly": "pnpm build"
 	},
 	"keywords": [
 		"openapi",
